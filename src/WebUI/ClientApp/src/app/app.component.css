@@ -1,0 +1,76 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 80vh; /* Use 80% of the viewport height */
+  max-width: 90%; /* Cover 90% of the screen width */
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-title {
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  font-size: 18px; /* Keep a balanced font size */
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+.messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  font-size: 14px; /* Small font size for more content */
+}
+
+  .messages div {
+    margin: 5px 0;
+    padding: 8px; /* Reduced padding for compact layout */
+    border-radius: 5px;
+  }
+
+.user-message {
+  background-color: #d4edda;
+  align-self: flex-end;
+}
+
+.bot-message {
+  background-color: #f8d7da;
+  align-self: flex-start;
+}
+
+.input-container {
+  display: flex;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+input {
+  flex: 1;
+  padding: 8px; /* Compact padding */
+  font-size: 14px; /* Smaller font size */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px 16px; /* Compact button size */
+  font-size: 14px; /* Smaller font */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+  button:hover {
+    background-color: #0056b3;
+  }

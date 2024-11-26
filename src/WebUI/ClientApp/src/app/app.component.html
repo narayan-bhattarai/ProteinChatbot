@@ -1,0 +1,24 @@
+<div class="chat-container">
+  <!-- Title Section -->
+  <div class="chat-title">
+    <h2> Proteomics Expert </h2>
+  </div>
+
+  <!-- Messages Section -->
+  <div class="messages">
+    <div *ngFor="let message of messages" [ngClass]="{'user-message': message.sender === 'User', 'bot-message': message.sender === 'Bot'}">
+      <strong>{{ message.sender }}:</strong> {{ message.text }}
+    </div>
+  </div>
+
+  <!-- Input Section -->
+  <div class="input-container">
+    <input
+      type="text"
+      [(ngModel)]="userInput"
+      (keyup.enter)="sendMessage()"
+      placeholder="Ask your proteomics question here.."
+    />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
