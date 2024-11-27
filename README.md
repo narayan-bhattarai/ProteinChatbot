@@ -1,5 +1,4 @@
 Proteomics Expert Chatbot
-
 This project implements a chatbot application that uses .NET 6 as the backend, Angular 19 as the frontend, and Ollama's Llama 3.2:1b model for chatbot functionality. The application is designed for querying proteomics data and interacting with the UniProt database for protein-related information.
 
 Table of Contents
@@ -30,34 +29,34 @@ Ollama CLI: Installed and configured locally.
 Git.
 Installation
 1. Clone the Repository
-bash
+
 
 git clone https://github.com/your-repo/proteomics-chatbot.git
 cd proteomics-chatbot
 2. Install Frontend Dependencies
-bash
+
 
 cd client-app
 npm install
 3. Install Backend Dependencies
-bash
+
 
 cd ../server
 dotnet restore
 4. Configure Ollama
 Ensure the Ollama service is running locally:
 
-bash
+
 
 ollama serve --port=11434
 Running the Project
 1. Start the Backend
-bash
+
 
 cd server
 dotnet run
 2. Start the Frontend
-bash
+
 
 cd client-app
 ng serve
@@ -113,10 +112,11 @@ FROM nginx:alpine
 COPY --from=build /app/dist/client-app /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
-Docker-Compose for Backend and Frontend
-Create a docker-compose.yml file:
 
-yaml
+
+Docker-Compose for Backend and Frontend
+
+Create a docker-compose.yml file:
 
 version: '3.8'
 
@@ -145,21 +145,25 @@ services:
 Ollama Integration
 Ensure that Ollama is installed locally and running on port 11434. To install Ollama:
 
-bash
 
-# Install Ollama CLI (Example for Windows)
-https://ollama.com/
+
+# Install Ollama CLI (Example for MacOS)
+brew install ollama
 
 # Run Ollama service
-ollama run llama3.2:1b
+ollama serve --port=11434
 Project Structure
-bash
+
 
 proteomics-chatbot/
-├── Clientapp/       # Angular frontend
-├── WebUI/           # .NET 6 backend
+├── Client-app/       # Angular frontend
+├── WebUI/
+├── Infrastructure/   
+├── Domain/   
+├── Application/      # .NET 6 backend
 ├── docker-compose.yml
 └── README.md
+
 API Endpoints
 1. Protein by Name
 Endpoint: /api/Chat/parse-protein-data-by-proteinName
@@ -172,7 +176,7 @@ Method: GET
 Description: Fetch details about a protein using its UniProt ID.
 
 3. Chatbot Query
-Endpoint: /api/Chat/query-to-ollama?promptValue=test
+Endpoint: api/Chat/query-to-ollama
 Method: POST
 Description: Chat with the Llama 3.2:1b model.
 
@@ -194,7 +198,5 @@ Ollama Issues:
 Verify Ollama is running on port 11434.
 Restart the service with ollama serve --port=11434.
 
-
-
-The Image of the Chabot Looks like 
-![chatbot](https://github.com/user-attachments/assets/9b0afa11-bfa6-4c91-b8cf-ed106ca65d6b)
+The image of frontpage of the Chatbot
+(https://github.com/user-attachments/assets/e661fcae-b870-4c0e-85e8-2ecdb34433d3)
