@@ -1,24 +1,30 @@
-<div class="chat-container">
-  <!-- Title Section -->
+
+
+<div class="view-toggle">
+  <button [ngClass]="{ active: viewMode === 'chat' }" (click)="setViewMode('chat')">Chatbot</button>
+
+</div>
+
+<div  class="chat-container">
+  <!-- Chatbot Interface -->
   <div class="chat-title">
     <h2> Proteomics Expert </h2>
   </div>
 
-  <!-- Messages Section -->
   <div class="messages">
     <div *ngFor="let message of messages" [ngClass]="{'user-message': message.sender === 'User', 'bot-message': message.sender === 'Bot'}">
-      <strong>{{ message.sender }}:</strong> {{ message.text }}
+      <strong>{{ message.sender }}:</strong> 
+        <span *ngIf="!message.isHtml">{{ message.text }}</span>
+        <span *ngIf="message.isHtml" [innerHTML]="message.text"></span>
     </div>
   </div>
 
-  <!-- Input Section -->
   <div class="input-container">
-    <input
-      type="text"
-      [(ngModel)]="userInput"
-      (keyup.enter)="sendMessage()"
-      placeholder="Ask your proteomics question here.."
-    />
+    <input type="text"
+           [(ngModel)]="userInput"
+           (keyup.enter)="sendMessage()"
+           placeholder="Ask your proteomics question here. Type a UniProt ID or a Protein Name with the suffix 'protein'." />
     <button (click)="sendMessage()">Send</button>
   </div>
 </div>
+
